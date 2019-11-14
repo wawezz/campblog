@@ -1,0 +1,34 @@
+{
+  "connection": "default",
+  "collectionName": "writers",
+  "info": {
+    "name": "writer",
+    "description": "Blog posts author"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "fullName": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "about": {
+      "default": "",
+      "type": "text"
+    },
+    "posts": {
+      "collection": "post",
+      "via": "writer"
+    }
+  }
+}

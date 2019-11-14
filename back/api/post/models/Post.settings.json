@@ -1,0 +1,64 @@
+{
+  "connection": "default",
+  "collectionName": "posts",
+  "info": {
+    "name": "post",
+    "description": "Blog, Article"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "default": "",
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "rank": {
+      "default": 0,
+      "max": 5,
+      "type": "decimal"
+    },
+    "writer": {
+      "model": "writer",
+      "via": "posts"
+    },
+    "category": {
+      "model": "category",
+      "via": "posts"
+    },
+    "tags": {
+      "collection": "tag",
+      "via": "posts"
+    },
+    "excerpt": {
+      "default": "",
+      "type": "text"
+    },
+    "top": {
+      "default": false,
+      "type": "boolean"
+    },
+    "publishDate": {
+      "default": "",
+      "type": "date",
+      "required": true
+    },
+    "votes": {
+      "default": 0,
+      "type": "integer"
+    }
+  }
+}
